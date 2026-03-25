@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { categories, getCategory, getAllProjects } from "@/lib/portfolio-data";
+import {
+  getAllCategorySlugs,
+  getCategoryBySlug,
+} from "@/lib/supabase/queries";
 import ProjectCard from "@/components/ProjectCard";
 import AnimatedSection from "@/components/AnimatedSection";
 
-export function generateStaticParams() {
-  return categories.map((c) => ({ category: c.slug }));
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  return getAllCategorySlugs();
 }
 
 export async function generateMetadata({
@@ -14,7 +19,7 @@ export async function generateMetadata({
   params: Promise<{ category: string }>;
 }): Promise<Metadata> {
   const { category: slug } = await params;
-  const category = getCategory(slug);
+  const category = await getCategoryBySlug(slug);
   if (!category) return {};
   return {
     title: category.title,
@@ -28,7 +33,7 @@ export default async function CategoryPage({
   params: Promise<{ category: string }>;
 }) {
   const { category: slug } = await params;
-  const category = getCategory(slug);
+  const category = await getCategoryBySlug(slug);
   if (!category) notFound();
 
   const hasSubcategories = !!category.subcategories?.length;
@@ -66,7 +71,7 @@ export default async function CategoryPage({
         ))
       ) : (
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-          {getAllProjects(category).map((project) => (
+          {(category.projects ?? []).map((project) => (
             <AnimatedSection key={project.slug}>
               <ProjectCard
                 project={project}

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { categories } from "@/lib/portfolio-data";
+import { getCategories } from "@/lib/supabase/queries";
 import AnimatedSection from "@/components/AnimatedSection";
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -10,7 +12,9 @@ export const metadata: Metadata = {
     "Découvrez nos réalisations en production visuelle et branding.",
 };
 
-export default function PortfolioPage() {
+export default async function PortfolioPage() {
+  const categories = await getCategories();
+
   return (
     <div className="mx-auto max-w-6xl px-6 py-12 md:py-24">
       <AnimatedSection>

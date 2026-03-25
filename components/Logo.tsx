@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getBlobUrl } from "@/lib/blob-url";
+import { getStorageUrl } from "@/lib/storage-url";
 
 export default function Logo({
   className = "",
@@ -12,7 +12,7 @@ export default function Logo({
   return (
     <Link href="/" className={`block ${className}`}>
       <Image
-        src={getBlobUrl("/images/logo.png")}
+        src={getStorageUrl("/images/logo.png")}
         alt="Plan Studio Paris"
         width={240}
         height={76}

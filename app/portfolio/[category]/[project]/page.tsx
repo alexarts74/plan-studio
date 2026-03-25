@@ -1,27 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { categories, findProject } from "@/lib/portfolio-data";
+import {
+  getAllProjectParams,
+  findProjectBySlug,
+} from "@/lib/supabase/queries";
 import ImageGallery from "@/components/ImageGallery";
 import AnimatedSection from "@/components/AnimatedSection";
 
-export function generateStaticParams() {
-  const params: { category: string; project: string }[] = [];
-  for (const cat of categories) {
-    if (cat.projects) {
-      for (const proj of cat.projects) {
-        params.push({ category: cat.slug, project: proj.slug });
-      }
-    }
-    if (cat.subcategories) {
-      for (const sub of cat.subcategories) {
-        for (const proj of sub.projects) {
-          params.push({ category: cat.slug, project: proj.slug });
-        }
-      }
-    }
-  }
-  return params;
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+  return getAllProjectParams();
 }
 
 export async function generateMetadata({
@@ -30,7 +20,7 @@ export async function generateMetadata({
   params: Promise<{ category: string; project: string }>;
 }): Promise<Metadata> {
   const { category, project } = await params;
-  const result = findProject(category, project);
+  const result = await findProjectBySlug(category, project);
   if (!result) return {};
   return {
     title: `${result.project.title} — ${result.category.title}`,
@@ -44,7 +34,7 @@ export default async function ProjectPage({
   params: Promise<{ category: string; project: string }>;
 }) {
   const { category: catSlug, project: projSlug } = await params;
-  const result = findProject(catSlug, projSlug);
+  const result = await findProjectBySlug(catSlug, projSlug);
   if (!result) notFound();
 
   const { category, project, subcategory } = result;

@@ -27,7 +27,7 @@ export interface Category {
   projects?: Project[];
 }
 
-import { getBlobUrl } from "./blob-url";
+import { getStorageUrl } from "./storage-url";
 
 function generateImages(
   category: string,
@@ -42,7 +42,7 @@ function generateImages(
     ? `/images/${category}/${subcategory}/${project}`
     : `/images/${category}/${project}`;
   return Array.from({ length: count }, (_, i) => ({
-    src: getBlobUrl(`${base}/${project}-${String(i + 1).padStart(2, "0")}.jpg`),
+    src: getStorageUrl(`${base}/${project}-${String(i + 1).padStart(2, "0")}.jpg`),
     width,
     height,
     alt: `${title || project} — photo ${i + 1}`,
@@ -55,7 +55,7 @@ export const categories: Category[] = [
     title: "Production Visuelle",
     description:
       "Photographie professionnelle pour tous vos besoins visuels : corporate, portraits, food, espaces et événementiel.",
-    coverImage: getBlobUrl("/images/production-visuelle/portraits/camille-delonnay/camille-delonnay-01.jpg"),
+    coverImage: getStorageUrl("/images/production-visuelle/portraits/camille-delonnay/camille-delonnay-01.jpg"),
     subcategories: [
       {
         slug: "corporate",
@@ -184,7 +184,7 @@ export const categories: Category[] = [
     title: "Branding",
     description:
       "Identité visuelle complète, direction artistique et création de marque pour des projets d'exception.",
-    coverImage: getBlobUrl("/images/branding/domolovi/domolovi-01.jpg"),
+    coverImage: getStorageUrl("/images/branding/domolovi/domolovi-01.jpg"),
     projects: [
       {
         slug: "maison-heritage",
@@ -205,7 +205,7 @@ export const categories: Category[] = [
         slug: "domolovi",
         title: "Domolovi",
         images: generateImages("branding", "domolovi", 6, 1282, 1603, undefined, "Domolovi"),
-        video: getBlobUrl("/videos/domolovi.mp4"),
+        video: getStorageUrl("/videos/domolovi.mp4"),
       },
       {
         slug: "maison-martine",

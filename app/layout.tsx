@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { cormorantGaramond, inter } from "@/lib/fonts";
 import Navigation from "@/components/Navigation";
+import ConditionalMain from "@/components/ConditionalMain";
 import ConditionalFooter from "@/components/ConditionalFooter";
 import "./globals.css";
 
@@ -25,7 +26,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <Navigation />
-        <main className="flex-1 pt-20 md:pt-24">{children}</main>
+        <ConditionalMain>{children}</ConditionalMain>
         <ConditionalFooter />
       </body>
     </html>
