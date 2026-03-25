@@ -18,7 +18,7 @@ export default function Logo({
         height={76}
         priority
         className={`h-auto transition-all duration-300 ${
-          scrolled ? "w-[120px] md:w-[160px]" : "w-[180px] md:w-[240px]"
+          scrolled ? "w-[100px] sm:w-[120px] md:w-[160px]" : "w-[140px] sm:w-[180px] md:w-[240px]"
         }`}
       />
     </Link>

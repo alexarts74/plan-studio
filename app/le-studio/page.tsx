@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function LeStudioPage() {
   return (
-    <div className="fixed inset-0 flex flex-col justify-center mx-auto max-w-3xl px-6 overflow-hidden">
+    <div className="mx-auto max-w-3xl px-6 py-16 md:py-24 md:min-h-[calc(100vh-6rem)] md:flex md:flex-col md:justify-center">
       <AnimatedSection>
         <h1 className="mb-8 text-4xl font-light tracking-tight md:text-5xl">
           Le Studio

@@ -64,13 +64,13 @@ export default function Navigation() {
 
       {isOpen && (
         <div className="fixed inset-0 z-40 flex items-center justify-center bg-white">
-          <nav className="flex flex-col items-center gap-8">
+          <nav className="flex flex-col items-center gap-6 sm:gap-8">
             {links.map((link, i) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={closeMenu}
-                className={`font-serif text-3xl font-light tracking-wide transition-colors hover:text-gray-400 md:text-5xl animate-fade-in ${
+                className={`font-serif text-2xl sm:text-3xl font-light tracking-wide transition-colors hover:text-gray-400 md:text-5xl animate-fade-in ${
                   pathname === link.href ? "text-gray-400" : "text-foreground"
                 }`}
                 style={{ animationDelay: `${i * 0.05}s` }}

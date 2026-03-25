@@ -2,12 +2,12 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-200 px-6 py-12 md:px-12">
+    <footer className="border-t border-gray-200 px-6 py-8 md:py-12 md:px-12">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 md:flex-row md:justify-between">
         <p className="font-serif text-sm tracking-widest uppercase">
           Plan Studio Paris
         </p>
-        <nav className="flex gap-6 text-sm text-gray-500">
+        <nav className="flex gap-4 md:gap-6 text-sm text-gray-500">
           <Link href="/le-studio" className="transition-colors hover:text-foreground">
             Le Studio
           </Link>

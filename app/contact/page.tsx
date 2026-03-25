@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+    <div className="mx-auto max-w-6xl px-6 py-12 md:py-24">
       <AnimatedSection>
         <h1 className="mb-4 text-4xl font-light tracking-tight md:text-5xl lg:text-6xl">
           Contact
@@ -19,7 +19,7 @@ export default function ContactPage() {
         </p>
       </AnimatedSection>
 
-      <div className="grid gap-16 md:grid-cols-2">
+      <div className="grid gap-10 md:gap-16 md:grid-cols-2">
         <AnimatedSection>
           <ContactForm />
         </AnimatedSection>

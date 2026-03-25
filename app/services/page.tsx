@@ -48,14 +48,14 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="fixed inset-0 flex flex-col justify-center mx-auto max-w-6xl px-6 overflow-hidden">
+    <div className="mx-auto max-w-6xl px-6 py-16 md:py-24 md:min-h-[calc(100vh-6rem)] md:flex md:flex-col md:justify-center">
       <AnimatedSection>
-        <h1 className="mb-16 text-4xl font-light tracking-tight md:text-5xl lg:text-6xl">
+        <h1 className="mb-10 md:mb-16 text-4xl font-light tracking-tight md:text-5xl lg:text-6xl">
           Nos Services
         </h1>
       </AnimatedSection>
 
-      <div className="grid gap-12 md:grid-cols-3 md:gap-8 lg:gap-16">
+      <div className="grid gap-8 md:grid-cols-3 md:gap-8 lg:gap-16">
         {services.map((service, i) => (
           <AnimatedSection key={service.title}>
             <div

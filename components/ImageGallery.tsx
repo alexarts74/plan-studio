@@ -85,7 +85,7 @@ export default function ImageGallery({
               e.stopPropagation();
               close();
             }}
-            className="absolute top-6 right-6 text-white text-2xl z-10 p-2 hover:opacity-70 transition-opacity"
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 text-white text-2xl z-10 p-2 hover:opacity-70 transition-opacity"
             aria-label="Fermer"
           >
             &#x2715;
@@ -95,7 +95,7 @@ export default function ImageGallery({
               e.stopPropagation();
               prev();
             }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl p-4 hover:opacity-70 transition-opacity"
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 text-white text-2xl p-2 sm:text-3xl sm:p-4 hover:opacity-70 transition-opacity"
             aria-label="Image précédente"
           >
             &#x2039;
@@ -105,7 +105,7 @@ export default function ImageGallery({
               e.stopPropagation();
               next();
             }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl p-4 hover:opacity-70 transition-opacity"
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 text-white text-2xl p-2 sm:text-3xl sm:p-4 hover:opacity-70 transition-opacity"
             aria-label="Image suivante"
           >
             &#x203A;

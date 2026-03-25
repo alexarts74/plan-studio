@@ -50,7 +50,7 @@ export default async function ProjectPage({
   const { category, project, subcategory } = result;
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+    <div className="mx-auto max-w-6xl px-6 py-12 md:py-24">
       <AnimatedSection>
         <nav className="mb-8 text-sm text-gray-400">
           <Link href="/portfolio" className="hover:text-foreground transition-colors">

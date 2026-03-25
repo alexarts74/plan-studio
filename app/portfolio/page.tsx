@@ -12,14 +12,14 @@ export const metadata: Metadata = {
 
 export default function PortfolioPage() {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+    <div className="mx-auto max-w-6xl px-6 py-12 md:py-24">
       <AnimatedSection>
         <h1 className="mb-16 text-4xl font-light tracking-tight md:text-5xl lg:text-6xl">
           Portfolio
         </h1>
       </AnimatedSection>
 
-      <div className="grid gap-8 md:grid-cols-2">
+      <div className="grid gap-6 md:gap-8 md:grid-cols-2">
         {categories.map((cat) => (
           <AnimatedSection key={cat.slug}>
             <Link

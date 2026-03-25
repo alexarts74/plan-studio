@@ -34,19 +34,19 @@ export default async function CategoryPage({
   const hasSubcategories = !!category.subcategories?.length;
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+    <div className="mx-auto max-w-6xl px-6 py-12 md:py-24">
       <AnimatedSection>
         <h1 className="mb-4 text-4xl font-light tracking-tight md:text-5xl lg:text-6xl">
           {category.title}
         </h1>
-        <p className="mb-16 max-w-2xl text-lg text-gray-500">
+        <p className="mb-10 md:mb-16 max-w-2xl text-lg text-gray-500">
           {category.description}
         </p>
       </AnimatedSection>
 
       {hasSubcategories ? (
         category.subcategories!.map((sub) => (
-          <section key={sub.slug} className="mb-16">
+          <section key={sub.slug} className="mb-10 md:mb-16">
             <AnimatedSection>
               <h2 className="mb-8 text-2xl font-light tracking-tight">
                 {sub.title}
