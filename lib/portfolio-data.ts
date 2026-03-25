@@ -204,7 +204,7 @@ export const categories: Category[] = [
       {
         slug: "domolovi",
         title: "Domolovi",
-        images: generateImages("branding", "domolovi", 6, 1282, 1603, undefined, "Domolovi"),
+        images: generateImages("branding", "domolovi", 5, 1282, 1603, undefined, "Domolovi"),
         video: getStorageUrl("/videos/domolovi.mp4"),
       },
       {
