@@ -5,6 +5,7 @@ import {
   getAllProjectParams,
   findProjectBySlug,
 } from "@/lib/supabase/queries";
+import { siteConfig } from "@/lib/site-config";
 import ImageGallery from "@/components/ImageGallery";
 import AnimatedSection from "@/components/AnimatedSection";
 
@@ -22,9 +23,15 @@ export async function generateMetadata({
   const { category, project } = await params;
   const result = await findProjectBySlug(category, project);
   if (!result) return {};
+  const ogImage = result.project.images[0]?.src;
   return {
     title: `${result.project.title} — ${result.category.title}`,
     description: `${result.project.title} — projet ${result.category.title} par Plan Studio Paris.`,
+    openGraph: {
+      title: `${result.project.title} — ${result.category.title}`,
+      description: `${result.project.title} — projet ${result.category.title} par Plan Studio Paris.`,
+      ...(ogImage ? { images: [{ url: ogImage }] } : {}),
+    },
   };
 }
 
@@ -39,8 +46,36 @@ export default async function ProjectPage({
 
   const { category, project, subcategory } = result;
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Portfolio",
+        item: `${siteConfig.url}/portfolio`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: category.title,
+        item: `${siteConfig.url}/portfolio/${category.slug}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: project.title,
+      },
+    ],
+  };
+
   return (
     <div className="mx-auto max-w-6xl px-6 py-12 md:py-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <AnimatedSection>
         <nav className="mb-8 text-sm text-gray-400">
           <Link href="/portfolio" className="hover:text-foreground transition-colors">

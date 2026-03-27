@@ -1,5 +1,18 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { getStorageUrl } from "@/lib/storage-url";
+import { siteConfig } from "@/lib/site-config";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "Plan Studio Paris — Production Visuelle & Branding",
+  },
+  description: siteConfig.description,
+  openGraph: {
+    title: "Plan Studio Paris — Production Visuelle & Branding",
+    description: siteConfig.description,
+  },
+};
 
 export default function Home() {
   return (

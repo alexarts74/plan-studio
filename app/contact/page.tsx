@@ -4,7 +4,13 @@ import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Contactez Plan Studio Paris pour vos projets de production visuelle et branding.",
+  description:
+    "Contactez Plan Studio Paris pour vos projets de production visuelle et branding.",
+  openGraph: {
+    title: "Contact",
+    description:
+      "Contactez Plan Studio Paris pour vos projets de production visuelle et branding.",
+  },
 };
 
 export default function ContactPage() {

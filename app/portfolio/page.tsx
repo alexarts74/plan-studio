@@ -10,6 +10,11 @@ export const metadata: Metadata = {
   title: "Portfolio",
   description:
     "Découvrez nos réalisations en production visuelle et branding.",
+  openGraph: {
+    title: "Portfolio",
+    description:
+      "Découvrez nos réalisations en production visuelle et branding.",
+  },
 };
 
 export default async function PortfolioPage() {

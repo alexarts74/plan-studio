@@ -5,6 +5,11 @@ export const metadata: Metadata = {
   title: "Le Studio",
   description:
     "Découvrez Plan Studio Paris, studio de production visuelle et branding haut de gamme basé à Paris.",
+  openGraph: {
+    title: "Le Studio",
+    description:
+      "Découvrez Plan Studio Paris, studio de production visuelle et branding haut de gamme basé à Paris.",
+  },
 };
 
 export default function LeStudioPage() {

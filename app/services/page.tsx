@@ -5,6 +5,11 @@ export const metadata: Metadata = {
   title: "Services",
   description:
     "Production visuelle, branding et direction artistique — les services de Plan Studio Paris.",
+  openGraph: {
+    title: "Services",
+    description:
+      "Production visuelle, branding et direction artistique — les services de Plan Studio Paris.",
+  },
 };
 
 const services = [

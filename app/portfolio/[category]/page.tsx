@@ -24,6 +24,11 @@ export async function generateMetadata({
   return {
     title: category.title,
     description: category.description,
+    openGraph: {
+      title: category.title,
+      description: category.description,
+      images: [{ url: category.coverImage }],
+    },
   };
 }
 
