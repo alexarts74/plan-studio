@@ -29,10 +29,10 @@ export default function ContactPage() {
             <div>
               <h2 className="mb-4 text-lg font-medium tracking-tight">Par email</h2>
               <a
-                href="mailto:contact@planstudio.paris"
+                href="mailto:contact.studioplan@gmail.com"
                 className="text-gray-500 underline underline-offset-4 transition-colors hover:text-foreground"
               >
-                contact@planstudio.paris
+                contact.studioplan@gmail.com
               </a>
             </div>
 
@@ -51,7 +51,7 @@ export default function ContactPage() {
                 </li>
                 <li>
                   <a
-                    href="https://linkedin.com/company/planstudioparis"
+                    href="https://www.linkedin.com/company/plan-studio-paris/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline underline-offset-4 transition-colors hover:text-foreground"

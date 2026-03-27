@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { getAdminProjects, getAllCategories } from "@/lib/admin/queries";
 import ProjectList from "./project-list";
+import CategoryFilter from "./category-filter";
+
+export const dynamic = "force-dynamic";
 
 export default async function AdminProjectsPage({
   searchParams,
@@ -25,34 +28,12 @@ export default async function AdminProjectsPage({
         </Link>
       </div>
 
-      <div className="mb-6">
-        <div className="flex gap-2 flex-wrap">
-          <Link
-            href="/admin/projects"
-            className={`px-3 py-1.5 text-sm rounded-lg ${
-              !category ? "bg-gray-900 text-white" : "bg-white border border-gray-300 text-gray-600 hover:bg-gray-50"
-            }`}
-          >
-            Tous
-          </Link>
-          {categories.map((cat) => (
-            <Link
-              key={cat.id}
-              href={`/admin/projects?category=${cat.id}`}
-              className={`px-3 py-1.5 text-sm rounded-lg ${
-                category === cat.id ? "bg-gray-900 text-white" : "bg-white border border-gray-300 text-gray-600 hover:bg-gray-50"
-              }`}
-            >
-              {cat.title}
-            </Link>
-          ))}
-        </div>
-      </div>
+      <CategoryFilter categories={categories} />
 
       {projects.length === 0 ? (
         <p className="text-gray-500">Aucun projet.</p>
       ) : (
-        <ProjectList projects={projects} />
+        <ProjectList key={category ?? "all"} projects={projects} />
       )}
     </div>
   );
